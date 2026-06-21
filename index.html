@@ -6,7 +6,7 @@
 <title>No Hands Automations — Med Spa Booking &amp; No-Show Prevention, Automated</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Cormorant+Garamond:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #1A1A18;
@@ -27,7 +27,9 @@
     background: var(--ivory);
     color: var(--ink);
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.001em;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -159,37 +161,169 @@
   .section-ink .section-head p { color: rgba(247,244,236,0.6); }
 
   /* ---------- HERO ---------- */
-  .hero { padding: 100px 0 84px; text-align: center; }
+  .hero { padding: 0; }
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 92vh;
+  }
+  .hero-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 64px 60px 56px;
+  }
   .hero h1 {
     font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: clamp(36px, 5.2vw, 60px);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    max-width: 840px;
-    margin: 0 auto 24px;
+    font-weight: 350;
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+    margin: 0 0 26px;
     color: var(--ink);
   }
-  .hero h1 .accent { color: var(--gold); font-style: italic; font-weight: 400; }
-  .hero p.sub { max-width: 560px; margin: 0 auto 40px; color: var(--taupe); font-size: 17px; }
+  .hero h1 .accent { color: var(--bronze); font-style: italic; font-weight: 400; }
+  .hero p.sub { max-width: 460px; margin: 0 0 38px; color: var(--taupe); font-size: 16.5px; font-weight: 300; line-height: 1.7; }
+  .hero p.sub strong { color: var(--ink); font-weight: 500; }
 
-  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 72px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
   .btn-primary, .btn-secondary {
     padding: 16px 32px;
-    border-radius: 3px;
-    font-size: 14px;
-    letter-spacing: 0.03em;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.25s;
     display: inline-block;
     font-weight: 500;
   }
   .btn-primary { background: var(--ink); color: var(--ivory); }
   .btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-1px); }
-  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); letter-spacing: 0.08em; }
   .btn-secondary:hover { border-color: var(--gold); color: var(--bronze); }
 
-  /* ---------- SIGNATURE PLAQUE ---------- */
+  .hero-stats-row { display: flex; flex-direction: column; gap: 16px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .hero-stat { display: flex; align-items: baseline; gap: 14px; }
+  .hero-stat .num { font-family: 'Fraunces', serif; font-size: 22px; color: var(--bronze); flex-shrink: 0; min-width: 50px; }
+  .hero-stat .lbl { font-size: 13.5px; color: var(--taupe); letter-spacing: 0.01em; }
+
+  /* ---------- HERO VISUAL COLUMN ---------- */
+  .hero-visual-col {
+    position: relative;
+    background: linear-gradient(155deg, #2A2520 0%, #1A1A18 55%, #14130F 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-visual-col::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-photo, none);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+  }
+  .hero-visual-col::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(26,26,24,0.78) 0%, rgba(26,26,24,0.35) 55%, rgba(26,26,24,0.55) 100%);
+  }
+  .hero-visual-texture {
+    position: absolute;
+    top: 32px; left: 32px;
+    z-index: 3;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(247,244,236,0.55);
+  }
+
+  /* Phone mockup */
+  .phone-mockup {
+    position: relative;
+    z-index: 4;
+    width: 270px;
+    background: #0E0E0C;
+    border-radius: 32px;
+    padding: 10px;
+    box-shadow: 0 40px 90px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.15);
+  }
+  .phone-screen {
+    background: var(--ivory);
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+  .phone-topbar {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 16px 18px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone-topbar .avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .phone-topbar .pname { font-size: 13px; font-weight: 500; }
+  .phone-topbar .pstatus { font-size: 10px; color: var(--gold-soft); }
+
+  .phone-body { padding: 16px 14px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .bubble {
+    max-width: 88%;
+    padding: 10px 13px;
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .bubble-in { background: var(--ivory-warm); color: var(--ink); border: 1px solid var(--line); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .bubble-out { background: var(--gold); color: var(--ink); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
+  .bubble-time { font-size: 9px; color: var(--taupe); opacity: 0.6; margin-top: 3px; }
+
+  .phone-status-chip {
+    margin: 4px auto 0;
+    align-self: center;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    position: relative;
+    height: 22px;
+    min-width: 140px;
+    text-align: center;
+    background: rgba(122,106,82,0.12);
+  }
+  .phone-status-chip .txt { position: absolute; left: 0; right: 0; transition: opacity 0.3s; }
+  .phone-status-chip .txt-a { color: var(--taupe); animation: cycle1 7s infinite; }
+  .phone-status-chip .txt-b { color: var(--bronze); animation: cycle2 7s infinite; }
+  .phone-status-chip .txt-c { color: #5B7A5E; animation: cycle3 7s infinite; }
+
+  @media (max-width: 980px) {
+    .hero-split { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text-col { padding: 56px 28px 40px; text-align: center; align-items: center; }
+    .hero p.sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-stats-row { align-items: center; }
+    .hero-stat { justify-content: center; }
+    .hero-visual-col { padding: 56px 28px; min-height: 560px; }
+  }
+
+  /* ---------- SIGNATURE PLAQUE (used later in flow section) ---------- */
   .plaque {
     max-width: 640px;
     margin: 0 auto;
@@ -233,8 +367,56 @@
 
   /* ---------- TRUST STRIP ---------- */
   .trust-strip { padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .trust-row { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-  .trust-row span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); opacity: 0.75; }
+  .trust-row { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .trust-row span { font-size: 12.5px; letter-spacing: 0.06em; color: var(--taupe); padding: 0 28px; position: relative; }
+  .trust-row span:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background: var(--line-gold); }
+  @media (max-width: 700px) {
+    .trust-row { flex-direction: column; gap: 14px; }
+    .trust-row span { padding: 0; }
+    .trust-row span::after { display: none; }
+  }
+
+  /* ---------- PAIN SECTION ---------- */
+  .pain-section { background: var(--ink); color: var(--ivory); padding: 96px 0; }
+  .pain-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .pain-list { display: flex; flex-direction: column; gap: 22px; }
+  .pain-item { display: flex; gap: 16px; align-items: flex-start; }
+  .pain-item .mark { color: var(--gold); font-family: 'Fraunces', serif; font-style: italic; font-size: 18px; flex-shrink: 0; line-height: 1.4; }
+  .pain-item p { font-size: 16px; color: rgba(247,244,236,0.75); line-height: 1.6; margin: 0; }
+  .pain-resolve { padding-top: 8px; }
+  .pain-resolve .resolve-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+  .pain-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 17px; color: var(--ivory); }
+  .pain-flow .arrow { color: var(--gold); font-size: 15px; }
+  .pain-resolve-note { margin-top: 24px; font-size: 14.5px; color: rgba(247,244,236,0.55); max-width: 380px; }
+
+  @media (max-width: 860px) {
+    .pain-layout { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---------- WHAT GETS AUTOMATED ---------- */
+  .checklist-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 880px; margin: 0 auto; }
+  .check-item { display: flex; align-items: center; gap: 10px; padding: 16px 18px; background: var(--ivory); border: 1px solid var(--line); border-radius: 4px; }
+  .check-item .mark { width: 18px; height: 18px; border-radius: 50%; background: rgba(201,168,76,0.15); color: var(--bronze); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .check-item span.label { font-size: 13.5px; color: var(--ink); }
+  @media (max-width: 860px) { .checklist-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .checklist-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .howitworks-flow { display: flex; align-items: flex-start; justify-content: center; flex-wrap: nowrap; gap: 0; max-width: 760px; margin: 0 auto 28px; }
+  .hiw-step { display: flex; flex-direction: column; align-items: center; text-align: center; width: 140px; }
+  .hiw-step .hiw-num { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-gold); background: var(--ivory-warm); display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+  .hiw-step p { font-size: 12.5px; color: var(--taupe); line-height: 1.4; }
+  .hiw-arrow { color: var(--line-gold); font-size: 18px; margin-top: 18px; flex-shrink: 0; }
+  @media (max-width: 860px) {
+    .howitworks-flow { flex-direction: column; gap: 18px; }
+    .hiw-arrow { transform: rotate(90deg); margin-top: 0; }
+  }
+
+  .proof-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .proof-shot { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--ivory); }
+  .proof-shot img { width: 100%; display: block; }
+  .proof-shot .caption { padding: 12px 16px; font-size: 12.5px; color: var(--taupe); border-top: 1px solid var(--line); }
+  @media (max-width: 860px) { .proof-shots { grid-template-columns: 1fr; } }
 
   /* ---------- SERVICES ---------- */
   .services-subhead {
@@ -412,6 +594,7 @@
   .contact-card .cvalue { font-size: 15px; font-family: 'Fraunces', serif; }
 
   .contact-big-cta { margin-top: 48px; }
+  .cta-preline { font-size: 14.5px; color: rgba(247,244,236,0.6); margin-bottom: 18px; font-style: italic; font-family: 'Fraunces', serif; }
   .contact-big-cta .btn-primary { background: var(--gold); color: var(--ink); padding: 18px 40px; font-size: 15px; }
   .contact-big-cta .btn-primary:hover { background: var(--gold-soft); }
 
@@ -445,43 +628,136 @@
 </nav>
 
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Med Spa Operations Automation</p>
-    <h1>Your front desk stops<br/><span class="accent">chasing</span> patients.</h1>
-    <p class="sub">I build the booking, reminder, and confirmation systems med spas run on — so no appointment slips through, no-shows drop, and no one has to ask twice.</p>
-    <div class="hero-ctas">
-      <a href="#work" class="btn-primary">See it run live</a>
-      <a href="https://calendly.com/armstrong-eze-automation/30min" target="_blank" rel="noopener" class="btn-secondary">Book a free call</a>
+  <div class="hero-split">
+
+    <div class="hero-text-col">
+      <p class="eyebrow" style="justify-content:flex-start;">Med Spa Operations Automation</p>
+      <h1>Reduce No-Shows.<br/>Automate <span class="accent">Confirmations</span>.<br/>Free Up Your Front Desk.</h1>
+      <p class="sub">Custom appointment confirmation, reminder, and patient communication systems for med spas — so <strong>no appointment slips through</strong>, and no one on your team has to ask twice.</p>
+      <div class="hero-ctas">
+        <a href="https://calendly.com/armstrong-eze-automation/30min" target="_blank" rel="noopener" class="btn-primary">Book a Free Call</a>
+        <a href="#work" class="btn-secondary">See It Run Live</a>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat"><div class="num">72h</div><div class="lbl">Automated confirmation requests</div></div>
+        <div class="hero-stat"><div class="num">24/7</div><div class="lbl">Patients confirm, cancel, reschedule themselves</div></div>
+        <div class="hero-stat"><div class="num">0</div><div class="lbl">Manual reminder calls required</div></div>
+      </div>
     </div>
 
-    <div class="plaque">
-      <div class="plaque-label"><span>Live Appointment · Emmy MedSpa</span><span>Auto-tracked</span></div>
-      <div class="plaque-row">
-        <div>
-          <div class="plaque-patient">Skin Tightening — 2:00 PM</div>
-          <div class="plaque-meta">Booked 6 days in advance</div>
+    <div class="hero-visual-col">
+      <span class="hero-visual-texture">Emmy MedSpa · Live</span>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-topbar">
+            <div class="avatar">E</div>
+            <div>
+              <div class="pname">Emmy MedSpa</div>
+              <div class="pstatus">● online</div>
+            </div>
+          </div>
+          <div class="phone-body">
+            <div class="bubble bubble-in">
+              Hi Sarah, this is a friendly reminder of your appointment at Emmy MedSpa tomorrow at 2:00 PM. Reply YES to confirm.
+              <div class="bubble-time">10:30 AM</div>
+            </div>
+            <div class="bubble bubble-out">
+              YES
+              <div class="bubble-time">10:31 AM</div>
+            </div>
+            <div class="bubble bubble-in">
+              Thank you. Your appointment is confirmed — we look forward to seeing you.
+              <div class="bubble-time">10:31 AM</div>
+            </div>
+            <div class="phone-status-chip">
+              <span class="txt txt-a">scheduled</span>
+              <span class="txt txt-b">confirmation pending</span>
+              <span class="txt txt-c">confirmed</span>
+            </div>
+          </div>
         </div>
-        <div class="status-pill pill-1">
-          <span class="txt txt-a">scheduled</span>
-          <span class="txt txt-b">confirmation pending</span>
-          <span class="txt txt-c">confirmed</span>
-        </div>
-      </div>
-      <div class="plaque-foot">
-        <span>72h reminder → patient reply → status updated</span>
-        <span>No staff involved</span>
       </div>
     </div>
+
   </div>
 </section>
 
 <div class="trust-strip">
   <div class="wrap">
     <div class="trust-row">
-      <span>EMR Integration</span><span>SMS &amp; Email Reminders</span><span>Patient Self-Service</span><span>Secure Patient Records</span><span>HIPAA-Conscious Builds</span>
+      <span>Bookings Stop Getting Lost</span><span>Patients Stop Going Quiet</span><span>Records Stay Protected</span>
     </div>
   </div>
 </div>
+
+<section class="pain-section">
+  <div class="wrap">
+    <div class="pain-layout">
+      <div>
+        <p class="eyebrow">Why Med Spas Call Me</p>
+        <div class="pain-list">
+          <div class="pain-item"><span class="mark">—</span><p>Patients forget appointments, and no one finds out until the slot is already empty.</p></div>
+          <div class="pain-item"><span class="mark">—</span><p>Front desk staff spend hours every week just chasing confirmations by phone.</p></div>
+          <div class="pain-item"><span class="mark">—</span><p>Cancelled appointments leave revenue gaps that no one had time to fill.</p></div>
+          <div class="pain-item"><span class="mark">—</span><p>Bookings get copied between systems by hand, and small mistakes slip through.</p></div>
+        </div>
+      </div>
+      <div class="pain-resolve">
+        <p class="resolve-label">I Automate the Entire Process</p>
+        <div class="pain-flow">
+          <span>Booking</span><span class="arrow">→</span>
+          <span>Confirmation</span><span class="arrow">→</span>
+          <span>Reminder</span><span class="arrow">→</span>
+          <span>Reschedule</span><span class="arrow">→</span>
+          <span>Staff Notification</span>
+        </div>
+        <p class="pain-resolve-note">Every step above runs on its own — your team only steps in when a patient genuinely needs a human.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What Gets Automated</p>
+      <h2>The full patient journey, not just one step of it</h2>
+    </div>
+    <div class="checklist-grid">
+      <div class="check-item"><span class="mark">✓</span><span class="label">Online Booking</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">Appointment Confirmations</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">SMS Reminders</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">Email Reminders</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">Reschedule Requests</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">Cancellation Handling</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">Staff Notifications</span></div>
+      <div class="check-item"><span class="mark">✓</span><span class="label">EMR Updates</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How It Works</p>
+      <h2>One continuous lifecycle, not separate tools</h2>
+    </div>
+    <div class="howitworks-flow">
+      <div class="hiw-step"><div class="hiw-num">1</div><p>Patient Books</p></div>
+      <span class="hiw-arrow">→</span>
+      <div class="hiw-step"><div class="hiw-num">2</div><p>Appointment Scheduled</p></div>
+      <span class="hiw-arrow">→</span>
+      <div class="hiw-step"><div class="hiw-num">3</div><p>Confirmation Requested</p></div>
+    </div>
+    <div class="howitworks-flow">
+      <div class="hiw-step"><div class="hiw-num">4</div><p>Patient Confirms</p></div>
+      <span class="hiw-arrow">→</span>
+      <div class="hiw-step"><div class="hiw-num">5</div><p>Automatic Reminders</p></div>
+      <span class="hiw-arrow">→</span>
+      <div class="hiw-step"><div class="hiw-num">6</div><p>Appointment Completed</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="services">
   <div class="wrap">
@@ -594,7 +870,7 @@
             <div class="after"><div class="label">After</div><p>Patient submits once. EMR and messaging update instantly.</p></div>
           </div>
         </div>
-        <a href="#" class="case-video">
+        <a href="https://www.loom.com/share/783c93db844b4546ab7cf05422204b79" target="_blank" rel="noopener" class="case-video">
           <span class="play-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1A1A18"/></svg></span>
           <span class="video-label">Watch · Booking Workflow</span>
         </a>
@@ -634,23 +910,6 @@
         </a>
       </div>
 
-      <div class="case">
-        <div class="case-num">04</div>
-        <div class="case-body">
-          <span class="tag">Full System</span>
-          <h3>Every workflow, connected — the complete picture</h3>
-          <p>A single walkthrough connecting booking, reminders, and patient replies into one continuous lifecycle — the same system a live med spa would actually run on, end to end.</p>
-          <div class="case-before-after">
-            <div class="before"><div class="label">Before</div><p>Separate tools for booking, texting, and EMR entry.</p></div>
-            <div class="after"><div class="label">After</div><p>One status-driven system, no manual handoffs between steps.</p></div>
-          </div>
-        </div>
-        <a href="#" class="case-video">
-          <span class="play-btn"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="#1A1A18"/></svg></span>
-          <span class="video-label">Watch · Full Overview</span>
-        </a>
-      </div>
-
       <div class="case-more">
         <span class="dot"></span>
         <span>More patient-journey automations — follow-ups, review requests, reactivation campaigns — are being added as they're built.</span>
@@ -677,11 +936,11 @@
         <p>Protected health information is encrypted before it's stored, with every action logged — built with HIPAA-conscious handling from the ground up, not bolted on after.</p>
       </div>
       <div class="why-item">
-        <h4>Wired into your actual EMR</h4>
-        <p>New patients and appointments are created directly in Cliniko. No second system for staff to check, no copy-pasting between tools.</p>
+        <h4>No more copying bookings by hand</h4>
+        <p>New patients and appointments are created directly in your EMR (like Cliniko) the moment they book — no second system for staff to check, no copy-pasting between tools.</p>
       </div>
       <div class="why-item">
-        <h4>Meets patients on their channel</h4>
+        <h4>Patients confirm without staff lifting a finger</h4>
         <p>SMS, WhatsApp, or email — patients are reached however they actually respond, with messaging that reads like your clinic wrote it, not a robot.</p>
       </div>
     </div>
@@ -699,21 +958,13 @@
         <p class="eyebrow">Who's Building This</p>
         <h2>Hi, I'm Armstrong Eze.</h2>
         <p>I design and build the booking, reminder, and patient-communication systems med spas run on — so the front desk stops chasing confirmations by hand.</p>
-        <p>I care more about whether a workflow survives contact with a messy real-world edge case than whether a demo looks good for five minutes. Every system on this page has been tested, broken, fixed, and tested again before I'd put my name on it.</p>
+        <p>I have built and tested complete med spa booking, confirmation, reminder, and no-show prevention systems using self-hosted automation infrastructure. I care more about whether a workflow survives contact with a messy real-world edge case than whether a demo looks good for five minutes — every system on this page has been tested, broken, fixed, and tested again before I'd put my name on it.</p>
         <p>If your clinic is still confirming appointments by phone call, or your front desk is re-typing bookings into your EMR by hand — that's usually where we start.</p>
         <div class="about-socials">
           <a href="https://www.linkedin.com/in/armstrong-eze-b02a34294" target="_blank" rel="noopener" class="social-pill">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
             LinkedIn
           </a>
-          <span class="social-pill disabled">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 5.84a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2zm5.1-7.96a.94.94 0 1 0 0-1.88.94.94 0 0 0 0 1.88z"/></svg>
-            Instagram — coming soon
-          </span>
-          <span class="social-pill disabled">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.5c0-.97.27-1.5 1.5-1.5h1.5V4.2c-.46-.06-1.5-.2-2.4-.2-2.6 0-4.1 1.3-4.1 4v2.5H7v3h2.5V21h4z"/></svg>
-            Facebook — coming soon
-          </span>
         </div>
       </div>
     </div>
@@ -771,6 +1022,7 @@
       </a>
     </div>
     <div class="contact-big-cta">
+      <p class="cta-preline">I'll show you exactly where appointments are slipping through, and how to automate the process.</p>
       <a href="https://calendly.com/armstrong-eze-automation/30min" target="_blank" rel="noopener" class="btn-primary">Book your free 20-minute call</a>
     </div>
   </div>
@@ -782,8 +1034,6 @@
       <p>© 2026 No Hands Automations — Armstrong Eze. Built on n8n.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/armstrong-eze-b02a34294" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" class="disabled">Instagram</a>
-        <a href="#" class="disabled">Facebook</a>
       </div>
     </div>
   </div>
